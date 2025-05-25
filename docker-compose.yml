@@ -9,12 +9,13 @@ services:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./data-postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 
   strapi:
-    build: .
+    build: 
+      dockerfile: app-strapi/Dockerfile
     depends_on:
       - postgres
     environment:
@@ -29,7 +30,7 @@ services:
     ports:
       - "1337:1337"
     volumes:
-      - ./public:/app/public
+      - ./app-strapi/tmp/uploads:/app/public/uploads
     restart: always
 
 volumes:

@@ -1,0 +1,11 @@
+# Ignore everything in the resource directory
+resource/*
+
+# But don't ignore the .gitkeep file, so the directory structure is preserved
+!resource/.gitkeep
+
+# Also, a common one to ignore for Node projects:
+node_modules/
+
+# Compiled TypeScript output
+dist/
